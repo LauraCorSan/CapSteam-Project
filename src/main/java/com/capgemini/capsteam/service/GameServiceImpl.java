@@ -19,6 +19,11 @@ public class GameServiceImpl implements GameService{
 		return gameDao.findAll();
 	}
 
+	/**
+	 * Método para guardar y actualizar un juego
+	 * @param game, el juego a guardar o actualizar
+	 * @return void
+	 */
 	@Override
 	public void save(Game game) {
 		gameDao.save(game);
@@ -29,6 +34,11 @@ public class GameServiceImpl implements GameService{
 		gameDao.deleteById(rank);
 	}
 
+	/**
+	 * Método para encontrar un juego por id
+	 * @param rank, el id único para identificar el juego
+	 * @return Optional<Game>
+	 */
 	@Override
 	public Optional<Game> findById(int rank) {
 		return gameDao.findById(rank);

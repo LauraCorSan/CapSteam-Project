@@ -26,13 +26,23 @@ public class GameController {
 		return "GameList.html";
 	}
 	
+	/**
+	 * 
+	 * @param rank: para identificar el juego
+	 * @param m: el objeto Model para añadir atributos
+	 * @return String del formulario html
+	 */
 	@GetMapping("/update")
 	public String update(@RequestParam("rank") int rank, Model m) {
-		//TODO check null
 		m.addAttribute("game", service.findById(rank));
 		return "gameFormUpdate.html";
 	}
 	
+	/**
+	 * 
+	 * @param game, el juego a guardar o actualizar
+	 * @return String que redirige a /games
+	 */
 	@PostMapping("/save")
 	public String save(Game game) {
 		service.save(game);
