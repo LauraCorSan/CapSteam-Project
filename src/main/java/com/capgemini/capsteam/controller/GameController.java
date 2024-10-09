@@ -18,6 +18,7 @@ import com.capgemini.capsteam.service.GameService;
 public class GameController {
 	
 	
+	private static final Logger log = LoggerFactory.getLogger(GameController.class);
 	// Inyección del servicio de juegos para acceder a la lógica de negocio
 	@Autowired
 	GameService service;
@@ -45,7 +46,6 @@ public class GameController {
 	    }
 	
 
-	private static final Logger log = LoggerFactory.getLogger(GameController.class);
 	
 	@GetMapping("/new")
 	public String newUser(Game game, Model g) {
