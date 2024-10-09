@@ -45,9 +45,29 @@ public class Game {
 	@Column(name = "Global_Sales")
 	private double globalSales;
 
+
+	
+	public Game(int rank, String name, String platform, int year, String genre, String publisher, double naSales,
+			double euSales, double jpSales, double otherSales, double globalSales) {
+		super();
+		this.rank = rank;
+		this.name = name;
+		this.platform = platform;
+		this.year = year;
+		this.genre = genre;
+		this.publisher = publisher;
+		this.naSales = naSales;
+		this.euSales = euSales;
+		this.jpSales = jpSales;
+		this.otherSales = otherSales;
+		this.globalSales = globalSales;
+	}
+
+
 	public Game() {
 		super();
 	}
+	
 
 	public int getRank() {
 		return rank;
