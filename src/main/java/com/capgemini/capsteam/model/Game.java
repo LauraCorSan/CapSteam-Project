@@ -1,32 +1,49 @@
 package com.capgemini.capsteam.model;
 
+import java.io.Serializable;
+
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Size;
+
 
 @Entity
 @Table(name = "game")
-public class Game {
+public class Game implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2255623775586100155L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "Rank")
 	private int rank;
 
+	@NotEmpty
 	@Column(name = "Name")
 	private String name;
 
+	@NotEmpty
 	@Column(name = "Platform")
 	private String platform;
 
+	@NotEmpty
+	@Size(min=4, max=4)
 	@Column(name = "Year")
 	private int year;
 
+	@NotEmpty
 	@Column(name = "Genre")
 	private String genre;
 
+	@NotEmpty
 	@Column(name = "Publisher")
 	private String publisher;
 
@@ -42,6 +59,7 @@ public class Game {
 	@Column(name = "Other_Sales")
 	private double otherSales;
 
+	@NotEmpty
 	@Column(name = "Global_Sales")
 	private double globalSales;
 
