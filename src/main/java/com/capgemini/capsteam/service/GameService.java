@@ -11,10 +11,23 @@ public interface GameService {
 	//Metodo para obtener la lista de juegos
 	public List<Game> findAll();
 	
-	// Save and update
+	/**
+	 * Método para guardar y actualizar un juego
+	 * @param game, el juego a guardar o actualizar
+	 * @return void
+	 */
 	public void save(Game game);
 
-	public void deleteById(int id);
+	/**
+	 * Declaracion metodo para eliminar una tupla de la base de datos a traves de su id
+	 * @param rank : entero que sirve para identificar la entidad a borrar
+	 */
+	public void deleteById(int rank);
 	
+	/**
+	 * Método para encontrar un juego por id
+	 * @param rank, el id único para identificar el juego
+	 * @return Optional<Game>
+	 */
 	public Optional<Game> findById(int rank);
 }

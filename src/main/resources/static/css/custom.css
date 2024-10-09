@@ -45,3 +45,17 @@ p a{
 .container{
 	text-align:center;
 }
+input[type=submit] {
+  width: auto;
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
