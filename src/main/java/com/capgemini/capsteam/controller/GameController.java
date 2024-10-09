@@ -18,7 +18,6 @@ public class GameController {
 	GameService service;
 	private static final Logger log = LoggerFactory.getLogger(GameController.class);
 
-	
 	/**
 	 * Método para listar todos los juegos.	  
 	 * @param m parameto para añadir atributos al model
