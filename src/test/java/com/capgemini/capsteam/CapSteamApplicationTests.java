@@ -14,15 +14,13 @@ import com.capgemini.capsteam.repository.GameDaoImpl;
 @SpringBootTest
 class CapSteamApplicationTests {
 	private GameDaoImpl GameDao;
-	
-	
-
-
 @Autowired
 private GameController controller;
-
 @Test
-void shouldExistsController() {
-	assertThat(controller).isNotNull();
-}
+void shouldExistsController() { 
+	assertThat(controller).isNotNull();}
+	@Test
+	void shouldBeAlwaysTrue() {
+		assertThat(true).isTrue();
+	}
 }
