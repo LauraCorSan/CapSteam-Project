@@ -24,8 +24,8 @@ public class GameServiceImpl implements GameService{
 	}
 	
 	@Override
-	public void deleteById(int id) {
-		gameDao.deleteById(id);
+	public void deleteById(int rank) {
+		gameDao.deleteById(rank);
 	}
 
 }

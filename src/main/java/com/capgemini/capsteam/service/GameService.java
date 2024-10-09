@@ -12,5 +12,5 @@ public interface GameService {
 	// Save and update
 	public void save(Game game);
 
-	public void deleteById(int id);
+	public void deleteById(int rank);
 }
