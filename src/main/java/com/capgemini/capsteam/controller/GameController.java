@@ -44,7 +44,7 @@ public class GameController {
 	 * el rank) una vez realizada la operacion en la capa de servicio redirige a /games (pagina principal)
 	 * 
 	 * @param rank : entero que sirve para identificar la entidad a borrar
-	 * @return string que redirige a games
+	 * @return string que redirige a /games
 	 */
 	@GetMapping("/delete")
 	public String deleteGame(@RequestParam("rank") int rank) {
