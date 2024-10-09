@@ -14,12 +14,13 @@ public class GameServiceImpl implements GameService{
 	@Autowired
 	GameDao gameDAO;
 	
-	//Para Listar Todos
+	/**
+	 * Método para obtener y listar todos los juegos.
+	 * 
+	 * @return Una lista de objetos que contiene todos los juegos.
+	 */
 	@Override
 	public List<Game> findAll() {
 		return gameDAO.findAll();
 	}
-
-	
-
 }

@@ -14,9 +14,12 @@ public class GameController {
 	@Autowired
 	GameService service;
 	
-//private static final Logger log = LoggerFactory.getLogger(GameController.class);
 	
-	//Listar games
+	/**
+	 * Método para listar todos los juegos.	  
+	 * @param m parameto para añadir atributos al model
+	 * @return nombre del archivo de la vista HTML
+	 */
 	@GetMapping("/")
 	public String listGames(Model m) {
 		m.addAttribute("gameList",service.findAll());

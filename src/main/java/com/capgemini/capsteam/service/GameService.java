@@ -6,7 +6,9 @@ import com.capgemini.capsteam.model.Game;
 
 public interface GameService {
 	
-	//Metodo para obtener la lista de juegos
+	/**
+	 * Método para obtener la lista de todos los juegos.
+	 */
 	public List<Game> findAll();
 
 }
