@@ -19,11 +19,10 @@ public class GameServiceImpl implements GameService {
     }
 
 
-	
 	 /**
      * Busca juegos en la base de datos que contengan el nombre proporcionado.
-     * name El nombre del juego a buscar (puede ser parcial y no distingue mayúsculas/minúsculas).
-     * Devuelve una lista de juegos que coinciden con el nombre proporcionado.
+     * @param name El nombre del juego a buscar (puede ser parcial y no distingue mayúsculas/minúsculas).
+     * @return Devuelve una lista de juegos que coinciden con el nombre proporcionado.
      */
 	@Override
     public List<Game> getGameByName(String name) {

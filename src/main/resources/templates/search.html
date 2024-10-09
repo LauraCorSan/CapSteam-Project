@@ -11,6 +11,7 @@
 <div class="container mt-5">
     <h2 align="center">Search Game</h2>
     <form method="get" th:action="@{/games/search}">
+        <!-- Entrada para el nombre del juego a buscar y botón submit-->
         <input name="name" placeholder="Find by Game Name" size="50" th:value="${name}" type="text" />
         <button class="btn btn-info" type="submit">Search</button>
     </form>

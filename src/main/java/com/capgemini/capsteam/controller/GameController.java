@@ -23,9 +23,9 @@ public class GameController {
 	
 	/**
      * Maneja las solicitudes GET para buscar juegos. 
-     * name: El nombre del juego a buscar. Si es null, no se realiza ninguna búsqueda.
-     * m: El modelo para pasar atributos a la vista.
-     * devuelve la vista html que se renderiza.
+     * @param name: El nombre del juego a buscar. Si es null, no se realiza ninguna búsqueda.
+     * @param m: El modelo para pasar atributos a la vista.
+     * @return devuelve la vista html que se renderiza.
      */
 
 	@GetMapping(path = {"/error", "/search"})
