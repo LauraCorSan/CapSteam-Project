@@ -16,7 +16,7 @@
 			<h2>FORMULARIO DE JUEGOS (update)</h2>
 
 			<form method="post" th:object="${game}" th:action="@{/save}">
-				<input id="id" th:field="*{rank}" type="hidden" />
+				<input id="rank" th:field="*{rank}" type="hidden" />
 				<table>
 					<tr>
 						<td><label for="name">Nombre:</label></td>

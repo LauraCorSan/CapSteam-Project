@@ -1,6 +1,7 @@
 package com.capgemini.capsteam.service;
 
 import java.util.Optional;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,6 +14,10 @@ public class GameServiceImpl implements GameService{
 	@Autowired
 	public GameDao gameDao;
 
+	@Override
+	public List<Game> findAll() {
+		return gameDao.findAll();
+	}
 
 	@Override
 	public void save(Game game) {

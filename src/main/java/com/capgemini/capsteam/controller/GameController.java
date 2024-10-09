@@ -14,31 +14,42 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.capgemini.capsteam.model.Game;
 import com.capgemini.capsteam.service.GameService;
 
+
+
 @Controller
-@RequestMapping("/game")
 public class GameController {
-	
 	@Autowired
-	public GameService gameService;
+	GameService service;
 	
-	private static final Logger log = LoggerFactory.getLogger(GameController.class);
+	private static final Logger log = LoggerFactory.getLogger(GameController.class);	
 	
+	//Listar games
+	@GetMapping("/games")
+	public String listGames(Model m) {
+		m.addAttribute("gameList",service.findAll());
+		
+		return "GameList.html";
+	}
 	
 	@GetMapping("/update")
 	public String update(@RequestParam("rank") int rank, Model m) {
 		//TODO check null
-		m.addAttribute("game", gameService.findById(rank));
-		return "gameFormUpdate";
+		m.addAttribute("game", service.findById(rank));
+		return "gameFormUpdate.html";
 		
 	}
 	
 	@PostMapping("/save")
 	public String save(Game game) {
-		gameService.save(game);
-		return ("redirect:/");
+		service.save(game);
+		return ("redirect:/games");
 		
 	}
-	
 
 
+	@GetMapping("/delete")
+	public String deleteGame(@RequestParam("rank") int rank) {
+		service.deleteById(rank);
+		return ("redirect:/games");
+	}
 }
