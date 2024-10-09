@@ -19,4 +19,5 @@ public interface GameDao extends JpaRepository<Game,Integer>{
 	 */	
 	
 	List<Game> findByNameContainingIgnoreCase(String name);
+}
 

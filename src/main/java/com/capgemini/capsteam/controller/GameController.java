@@ -15,7 +15,6 @@ import com.capgemini.capsteam.model.Game;
 import com.capgemini.capsteam.service.GameService;
 
 @Controller
-@RequestMapping("/games")
 public class GameController {
 	
 	
@@ -30,7 +29,7 @@ public class GameController {
      * @return devuelve la vista html que se renderiza.
      */
 
-	@GetMapping(path = {"/error", "/search"})
+	@GetMapping(path = {"/games/error", "/games/search"})
 	    public String searchGameByName(@RequestParam(required = false) String name,Model m) {
 
 		  System.out.println("Searching for: " + name); // Imprime el nombre buscado
@@ -46,9 +45,6 @@ public class GameController {
 	    }
 	
 
-public class GameController {
-	@Autowired
-	GameService service;
 	private static final Logger log = LoggerFactory.getLogger(GameController.class);
 
 	
@@ -102,3 +98,5 @@ public class GameController {
 		return ("redirect:/games");
 	}
 }
+
+
