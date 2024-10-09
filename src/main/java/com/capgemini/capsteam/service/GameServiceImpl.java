@@ -11,13 +11,20 @@ import com.capgemini.capsteam.repository.GameDao;
 @Service
 public class GameServiceImpl implements GameService {
 	
-	GameDao gameDao;
+	GameDao gameDao;     // Inyección del DAO para acceder a la base de datos
+
 	@Autowired
     public GameServiceImpl(GameDao gameDao) {
-        this.gameDao = gameDao;
+        this.gameDao = gameDao; // Inicializa el GameDao
     }
 
 
+	
+	 /**
+     * Busca juegos en la base de datos que contengan el nombre proporcionado.
+     * name El nombre del juego a buscar (puede ser parcial y no distingue mayúsculas/minúsculas).
+     * Devuelve una lista de juegos que coinciden con el nombre proporcionado.
+     */
 	@Override
     public List<Game> getGameByName(String name) {
 

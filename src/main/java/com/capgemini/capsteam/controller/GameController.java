@@ -16,8 +16,17 @@ import com.capgemini.capsteam.service.GameService;
 @RequestMapping("/games")
 public class GameController {
 	
+	
+	// Inyección del servicio de juegos para acceder a la lógica de negocio
 	@Autowired
 	GameService service;
+	
+	/**
+     * Maneja las solicitudes GET para buscar juegos. 
+     * name: El nombre del juego a buscar. Si es null, no se realiza ninguna búsqueda.
+     * m: El modelo para pasar atributos a la vista.
+     * devuelve la vista html que se renderiza.
+     */
 
 	@GetMapping(path = {"/error", "/search"})
 	    public String searchGameByName(@RequestParam(required = false) String name,Model m) {
