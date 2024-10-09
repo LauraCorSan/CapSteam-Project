@@ -26,7 +26,7 @@ public class GameController {
 		@GetMapping("/new")
 		public String newUser(Game game, Model g) {
 			g.addAttribute("game",game);
-			return "GameForm";
+			return "Create.html";
 		}
 	@GetMapping("/games")
 	public String listGames(Model m) {

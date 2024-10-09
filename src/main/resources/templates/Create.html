@@ -3,48 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" th:href="@{/css/custom.css}">
+    <link rel="stylesheet" th:href="@{/static/css/create.css}">
     <title>Juegos nuevos</title>
 </head>
 <body>
 
 <h2>Juegos nuevos</h2>
-
-<table class="table2" id="dataTable">
-    <thead>
-        <tr>
-            <th class="wide-column2">ID</th>
-            <th class="wide-column2">Name</th>
-            <th class="wide-column2">Platform</th>
-            <th class="wide-column2">Year</th>
-            <th class="wide-column2">Genre</th>
-            <th class="wide-column2">Publisher</th>
-            <th class="small-column2">NA Sales</th>
-            <th class="small-column2">EU Sales</th>
-            <th class="small-column2">JP Sales</th>
-            <th class="small-column2">Other Sales</th>
-            <th class="small-column2">Global Sales</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td id="row-id-1">1</td>
-            <td><input class="input2" type="text" required></td>
-            <td><input class="input2" type="text" required></td>
-            <td><input class="input2" type="date" required></td>
-            <td><input class="input2" type="text" required></td>
-            <td><input class="input2" type="text" required></td>
-            <td><input class="input2 small-column2" type="number" step="0.01" required></td>
-            <td><input class="input2 small-column2" type="number" step="0.01" required></td>
-            <td><input class="input2 small-column2" type="number" step="0.01" required></td>
-            <td><input class="input2 small-column2" type="number" step="0.01" required></td>
-            <td><input class="input2 small-column2" type="number" step="0.01" required></td>
-        </tr>
-    </tbody>
-</table>
-
-<button class="button2" onclick="addRow()">Nuevo</button>
-<button class="button2" onclick="clearTable()">Borrar Todo</button>
-    
+<div class="container">
+<form method="post" th:object="${game}" th:action="@{/save}">
+    <table class="table2">
+        <thead>
+            <tr>
+                <th class="wide-column2">Name</th>
+                <th class="wide-column2">Platform</th>
+                <th class="wide-column2">Year</th>
+                <th class="wide-column2">Genre</th>
+                <th class="wide-column2">Publisher</th>
+                <th class="small-column2">NA Sales</th>
+                <th class="small-column2">EU Sales</th>
+                <th class="small-column2">JP Sales</th>
+                <th class="small-column2">Other Sales</th>
+                <th class="small-column2">Global Sales</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <input id="rank" th:field="*{rank}" type="hidden" />
+                    
+                </td>
+                <td><input class="input2 wide-column2" type="text" th:field="*{name}" required /></td>
+                <td><input class="input2 wide-column2" type="text" th:field="*{platform}" required /></td>
+                <td><input class="input2 wide-column2" type="text" th:field="*{year}" required /></td>
+                <td><input class="input2 wide-column2" type="text" th:field="*{genre}" required /></td>
+                <td><input class="input2 wide-column2" type="text" th:field="*{publisher}" required /></td>
+                <td><input class="input2 small-column2" type="number" step="0.01" th:field="*{naSales}" required /></td>
+                <td><input class="input2 small-column2" type="number" step="0.01" th:field="*{euSales}" required /></td>
+                <td><input class="input2 small-column2" type="number" step="0.01" th:field="*{jpSales}" required /></td>
+                <td><input class="input2 small-column2" type="number" step="0.01" th:field="*{otherSales}" required /></td>
+                <td><input class="input2 small-column2" type="number" step="0.01" th:field="*{globalSales}" required /></td>
+            </tr>
+            	<tr>
+						<td colspan="2" align="center"><input type="submit"
+							value="Guardar cambios"></td>
+					</tr>
+        </tbody>
+    </table>
+    <button class="button2" type="reset">Limpiar</button>
+	</form>
+    </div>
 </body>
 </html>
