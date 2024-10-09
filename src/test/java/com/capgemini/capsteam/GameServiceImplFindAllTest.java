@@ -17,7 +17,7 @@ import static org.mockito.Mockito.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith(MockitoExtension.class)  //línea para habilitar la extensión de Mockito, si no da error
-class GameServiceTest {
+class GameServiceImplFindAllTest {
 
     @Mock
     private GameDao gameDao;  //mockeamos el repositorio
@@ -34,6 +34,13 @@ class GameServiceTest {
         game2 = new Game(2, "Game2", "Platform2", 2021, "Genre2", "Publisher2", 2.0, 1.2, 0.8, 0.4, 4.4);
     }
 
+    
+    /**
+     * Prueba unitaria para verificar el comportamiento del método findAll() 
+     * del servicio GameServiceImpl. Simula la respuesta del repositorio 
+     * (GameDao) utilizando Mockito y valida que la lista de juegos 
+     * devuelta contenga los juegos esperados.
+     */
     @Test
     void testFindAll() {
         //simulamos la respuesta del repositorio
