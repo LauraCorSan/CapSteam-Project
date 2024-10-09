@@ -1,5 +1,6 @@
 package com.capgemini.capsteam.service;
 
+import java.util.Optional;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,11 @@ public class GameServiceImpl implements GameService{
 	@Override
 	public void deleteById(int rank) {
 		gameDao.deleteById(rank);
+	}
+
+	@Override
+	public Optional<Game> findById(int rank) {
+		return gameDao.findById(rank);
 	}
 
 }

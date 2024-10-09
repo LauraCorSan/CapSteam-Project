@@ -6,12 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.capgemini.capsteam.model.Game;
 import com.capgemini.capsteam.service.GameService;
 
 @Controller
-
 public class GameController {
 	@Autowired
 	GameService service;
@@ -23,6 +24,19 @@ public class GameController {
 	public String listGames(Model m) {
 		m.addAttribute("gameList",service.findAll());
 		return "GameList.html";
+	}
+	
+	@GetMapping("/update")
+	public String update(@RequestParam("rank") int rank, Model m) {
+		//TODO check null
+		m.addAttribute("game", service.findById(rank));
+		return "gameFormUpdate.html";
+	}
+	
+	@PostMapping("/save")
+	public String save(Game game) {
+		service.save(game);
+		return ("redirect:/games");
 	}
 
 

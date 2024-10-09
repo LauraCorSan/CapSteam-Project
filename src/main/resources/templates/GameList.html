@@ -12,11 +12,14 @@
 
         <h2>LISTADO DE JUEGOS</h2>
         <p>Datos de la tabla juegos</p>
+               <p>
+            <a href="/new" class="btn btn-primary">Nuevo Juego</a>
+        </p>
 
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th class="text-center">Rank</th>
+                    <th class="text-center">Id</th>
                     <th class="text-left">Name</th>
                     <th class="text-left">Platform</th>
                     <th class="text-center">Year</th>
@@ -45,13 +48,12 @@
                     <td th:text="${game.globalSales}" class="text-right"/>
                     <td><a th:href="@{/update(rank=${game.rank})}">Modificar</a> | <a
                         th:href="@{/delete(rank=${game.rank})}">Eliminar</a></td>
+
                 </tr>
             </tbody>
         </table>
 
-        <p>
-            <a href="/new" class="btn btn-primary">Nuevo Juego</a>
-        </p>
+ 
     </div>
 
 </body>
