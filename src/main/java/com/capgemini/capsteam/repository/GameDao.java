@@ -8,6 +8,13 @@ import com.capgemini.capsteam.model.Game;
 
 @Repository
 public interface GameDao extends JpaRepository<Game,Integer>{
+
+	List<Game> findByNameContainingIgnoreCase(String name);
+
+
 	List<Game> findByName(String name);
+
+
+
 
 }

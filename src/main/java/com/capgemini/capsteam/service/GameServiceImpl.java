@@ -11,12 +11,17 @@ import com.capgemini.capsteam.repository.GameDao;
 @Service
 public class GameServiceImpl implements GameService {
 	
+	GameDao gameDao;
 	@Autowired
-	GameDao gameDao ;
+    public GameServiceImpl(GameDao gameDao) {
+        this.gameDao = gameDao;
+    }
+
 
 	@Override
-	public List<Game> getGameByName(String name) {
-		return gameDao.findByName(name);
+    public List<Game> getGameByName(String name) {
+
+		return gameDao.findByNameContainingIgnoreCase(name);
 	}
 
 }
