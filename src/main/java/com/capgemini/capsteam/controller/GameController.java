@@ -27,7 +27,7 @@ public class GameController {
 	}
 	
 	/**
-	 * 
+	 * Método para abrir el formulario y actualizar un juego
 	 * @param rank: para identificar el juego
 	 * @param m: el objeto Model para añadir atributos
 	 * @return String del formulario html
@@ -39,7 +39,7 @@ public class GameController {
 	}
 	
 	/**
-	 * 
+	 * Método para guardar un juego nuevo o actualizado, mostrarlo en el listado
 	 * @param game, el juego a guardar o actualizar
 	 * @return String que redirige a /games
 	 */

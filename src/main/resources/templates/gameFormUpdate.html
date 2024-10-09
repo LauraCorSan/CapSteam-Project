@@ -10,10 +10,9 @@
 
 	<div class="container">
 		<h1>
-			Actualizar<br />juego
+			Actualizar juego
 		</h1>
 		<div align="center">
-			<h2>FORMULARIO DE JUEGOS (update)</h2>
 
 			<form method="post" th:object="${game}" th:action="@{/save}">
 				<input id="rank" th:field="*{rank}" type="hidden" />
