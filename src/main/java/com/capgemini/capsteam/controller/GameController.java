@@ -16,13 +16,13 @@ import com.capgemini.capsteam.service.GameService;
 public class GameController {
 	@Autowired
 	GameService service;
-	
-	private static final Logger log = LoggerFactory.getLogger(GameController.class);	
-	
-	//Listar games
+
+	private static final Logger log = LoggerFactory.getLogger(GameController.class);
+
+	// Listar games
 	@GetMapping("/games")
 	public String listGames(Model m) {
-		m.addAttribute("gameList",service.findAll());
+		m.addAttribute("gameList", service.findAll());
 		return "GameList.html";
 	}
 	
@@ -32,6 +32,7 @@ public class GameController {
 	 * @param m: el objeto Model para añadir atributos
 	 * @return String del formulario html
 	 */
+
 	@GetMapping("/update")
 	public String update(@RequestParam("rank") int rank, Model m) {
 		m.addAttribute("game", service.findById(rank));
@@ -43,13 +44,20 @@ public class GameController {
 	 * @param game, el juego a guardar o actualizar
 	 * @return String que redirige a /games
 	 */
+
 	@PostMapping("/save")
 	public String save(Game game) {
 		service.save(game);
 		return ("redirect:/games");
 	}
 
-
+	/**
+	 * Metodo para eliminar una tupla de la base de datos a traves de su id (que es
+	 * el rank) una vez realizada la operacion en la capa de servicio redirige a /games (pagina principal)
+	 * 
+	 * @param rank : entero que sirve para identificar la entidad a borrar
+	 * @return string que redirige a /games
+	 */
 	@GetMapping("/delete")
 	public String deleteGame(@RequestParam("rank") int rank) {
 		service.deleteById(rank);
