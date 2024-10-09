@@ -17,6 +17,12 @@ public class GameController {
 	@Autowired
 	GameService service;
 	private static final Logger log = LoggerFactory.getLogger(GameController.class);
+	
+	@GetMapping("/new")
+	public String newUser(Game game, Model g) {
+		g.addAttribute("game",game);
+		return "Create.html";
+	}
 
 	/**
 	 * Método para listar todos los juegos.	  
