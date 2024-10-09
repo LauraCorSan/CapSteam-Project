@@ -45,3 +45,37 @@ p a{
 .container{
 	text-align:center;
 }
+
+table2 {
+    border-collapse: collapse;
+    width: 100%;
+    background-color: turquoise;
+}
+
+table2, th2, td2 {
+    border: 1px solid black;
+}
+
+th2, td2 {
+    padding: 4px; 
+    text-align: center;
+    background-color: gray;
+}
+
+.small-column2 {
+    width: 50px;
+}
+
+.wide-column2 {
+    width: 100px;
+}
+input2 {
+    width: 95%;
+    padding: 2px;
+    font-size: 12px;
+}
+
+button2 {
+    margin-top: 10px;
+    padding: 5px 10px;
+}
