@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" th:href="@{/css/custom.css}" />
+
+<title>CapSteam</title>
+</head>
+<body>
+
+	<div class="container">
+		<h1>
+			Actualizar<br />juego
+		</h1>
+		<div align="center">
+			<h2>FORMULARIO DE JUEGOS (update)</h2>
+
+			<form method="post" th:object="${game}" th:action="@{/save}">
+				<input id="id" th:field="*{rank}" type="hidden" />
+				<table>
+					<tr>
+						<td><label for="name">Nombre:</label></td>
+						<td><input type="text" th:field="*{name}" /></td>
+					</tr>
+					<tr>
+						<td><label for="platform">Plataforma:</label></td>
+						<td><input type="text" th:field="*{platform}" /></td>
+					</tr>
+					<tr>
+						<td><label for="year">Año:</label></td>
+						<td><input type="text" th:field="*{year}" /></td>
+					</tr>
+					<tr>
+						<td><label for="genre">Género:</label></td>
+						<td><input type="text" th:field="*{genre}" /></td>
+					</tr>
+					<tr>
+						<td><label for="publisher">Editor:</label></td>
+						<td><input type="text" th:field="*{publisher}" /></td>
+					</tr>
+					<tr>
+						<td><label for="na_sales">Ventas NA:</label></td>
+						<td><input type="text" th:field="*{naSales}" /></td>
+					</tr>
+					<tr>
+						<td><label for="eu_sales">Ventas EU:</label></td>
+						<td><input type="text" th:field="*{euSales}" /></td>
+					</tr>
+					<tr>
+						<td><label for="jp_sales">Ventas JP:</label></td>
+						<td><input type="text" th:field="*{jpSales}" /></td>
+					</tr>
+					<tr>
+						<td><label for="other_sales">Otras ventas:</label></td>
+						<td><input type="text" th:field="*{otherSales}" /></td>
+					</tr>
+					<tr>
+						<td><label for="global_Sales">Ventas globales:</label></td>
+						<td><input type="text" th:field="*{globalSales}" /></td>
+					</tr>
+					<tr>
+						<td colspan="2" align="center"><input type="submit"
+							value="Guardar cambios"></td>
+					</tr>
+				</table>
+			</form>
+
+		</div>
+	</div>
+</body>
+</html>

@@ -1,5 +1,7 @@
 package com.capgemini.capsteam.service;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.capgemini.capsteam.model.Game;
@@ -20,6 +22,11 @@ public class GameServiceImpl implements GameService{
 	@Override
 	public void deleteById(int id) {
 		gameDao.deleteById(id);
+	}
+
+	@Override
+	public Optional<Game> findById(int rank) {
+		return gameDao.findById(rank);
 	}
 
 }
