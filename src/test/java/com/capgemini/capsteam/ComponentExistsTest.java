@@ -14,6 +14,7 @@ import com.capgemini.capsteam.service.GameService;
 class ComponentExistsTest {
 	@Autowired
 	private GameService gameService;
+	
 	@Autowired
 	private GameController gameController;
 
