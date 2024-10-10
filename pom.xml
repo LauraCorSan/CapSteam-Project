@@ -71,12 +71,6 @@
     <scope>test</scope>
 </dependency>
 
-<dependency>
-        <groupId>org.springframework</groupId>
-        <artifactId>spring-test</artifactId>
-        <version>5.3.10</version>
-        <scope>test</scope>
-    </dependency>
 
     <!-- Dependencia para Spring Boot Starter Test (para pruebas completas) -->
     <dependency>
