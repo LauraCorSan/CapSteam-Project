@@ -6,6 +6,13 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.DecimalMax;
+import jakarta.validation.constraints.DecimalMin;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
 @Entity
 @Table(name = "game")
@@ -15,38 +22,46 @@ public class Game {
 	@Column(name = "Rank")
 	private int rank;
 
+	@NotBlank(message = "El nombre no puede estar vacío")
 	@Column(name = "Name")
 	private String name;
 
+	@NotBlank(message = "La plataforma no puede estar vacía")
 	@Column(name = "Platform")
 	private String platform;
 
+	@Min(value = 1950, message = "El año debe ser mayor o igual a 1950")
 	@Column(name = "Year")
 	private int year;
 
+	@NotBlank(message = "El género no puede estar vacío")
 	@Column(name = "Genre")
 	private String genre;
 
+	@NotBlank(message = "El editor no puede estar vacío")
 	@Column(name = "Publisher")
 	private String publisher;
 
+	@DecimalMin("0.0")
 	@Column(name = "NA_Sales")
-	private double naSales;
+	private Double naSales;
 
+	@DecimalMin("0.0")
 	@Column(name = "EU_Sales")
-	private double euSales;
+	private Double euSales;
 
+	@DecimalMin("0.0")
 	@Column(name = "JP_Sales")
-	private double jpSales;
+	private Double jpSales;
 
+	@DecimalMin("0.0")
 	@Column(name = "Other_Sales")
-	private double otherSales;
+	private Double otherSales;
 
+	@DecimalMin("0.0")
 	@Column(name = "Global_Sales")
-	private double globalSales;
+	private Double globalSales;
 
-
-	
 	public Game(int rank, String name, String platform, int year, String genre, String publisher, double naSales,
 			double euSales, double jpSales, double otherSales, double globalSales) {
 		super();
@@ -63,11 +78,9 @@ public class Game {
 		this.globalSales = globalSales;
 	}
 
-
 	public Game() {
 		super();
 	}
-	
 
 	public int getRank() {
 		return rank;
