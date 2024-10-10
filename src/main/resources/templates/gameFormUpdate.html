@@ -11,54 +11,78 @@
 <body>
 
 	<div class="container">
-		<h1>
-			Actualizar juego
-		</h1>
+		<h1>Actualizar juego</h1>
 		<div align="center">
 
 			<form method="post" th:object="${game}" th:action="@{/save}">
 				<input id="rank" th:field="*{rank}" type="hidden" />
 				<table>
+					<!-- Nombre -->
 					<tr>
 						<td><label for="name">Nombre:</label></td>
-						<td><input type="text" th:field="*{name}" /></td>
+						<td><input type="text" th:field="*{name}" required /></td>
+
 					</tr>
+					<!-- Plataforma -->
 					<tr>
 						<td><label for="platform">Plataforma:</label></td>
-						<td><input type="text" th:field="*{platform}" /></td>
+						<td><input type="text" th:field="*{platform}" required/></td> 
 					</tr>
+					<!-- Año -->
 					<tr>
 						<td><label for="year">Año:</label></td>
-						<td><input type="text" th:field="*{year}" /></td>
+						<td><input type="number" th:field="*{year}" min="1950"
+							max="2024" required/></td>
+
 					</tr>
+					<!-- Género -->
 					<tr>
 						<td><label for="genre">Género:</label></td>
-						<td><input type="text" th:field="*{genre}" /></td>
+						<td><input type="text" th:field="*{genre}" required /></td>
+
 					</tr>
+					<!-- Editor -->
 					<tr>
 						<td><label for="publisher">Editor:</label></td>
-						<td><input type="text" th:field="*{publisher}" /></td>
+						<td><input type="text" th:field="*{publisher}" required /></td>
+
 					</tr>
+					<!-- Ventas NA -->
 					<tr>
 						<td><label for="na_sales">Ventas NA:</label></td>
-						<td><input type="text" th:field="*{naSales}" /></td>
+						<td><input type="number" th:field="*{naSales}" min="0.0"
+							step="0.01" /></td>
+
 					</tr>
+					<!-- Ventas EU -->
 					<tr>
 						<td><label for="eu_sales">Ventas EU:</label></td>
-						<td><input type="text" th:field="*{euSales}" /></td>
+						<td><input type="number" th:field="*{euSales}" min="0.0"
+							step="0.01" /></td>
+
 					</tr>
+					<!-- Ventas JP -->
 					<tr>
 						<td><label for="jp_sales">Ventas JP:</label></td>
-						<td><input type="text" th:field="*{jpSales}" /></td>
+						<td><input type="number" th:field="*{jpSales}" min="0.0"
+							step="0.01" /></td>
+
 					</tr>
+					<!-- Otras ventas -->
 					<tr>
 						<td><label for="other_sales">Otras ventas:</label></td>
-						<td><input type="text" th:field="*{otherSales}" /></td>
+						<td><input type="number" th:field="*{otherSales}" min="0.0"
+							step="0.01" /></td>
+
 					</tr>
+					<!-- Ventas globales -->
 					<tr>
 						<td><label for="global_Sales">Ventas globales:</label></td>
-						<td><input type="text" th:field="*{globalSales}" /></td>
+						<td><input type="number" th:field="*{globalSales}" min="0.0"
+							step="0.01" required/></td>
+
 					</tr>
+					<!-- Botón de guardar -->
 					<tr>
 						<td colspan="2" align="center">
 						<input type="submit"
