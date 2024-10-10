@@ -26,7 +26,11 @@ public class GameController {
 
 	
 	private static final Logger log = LoggerFactory.getLogger(GameController.class);
-	
+	/*Metodo para añadir un nuevo Juego
+	 * @param new para añadir un nuevo juego
+	 * @param g: el objeto Model puede añadir nuevos atributos para Game
+	 * @return  String de rellenar el formulario Create.html
+	 */
 		@GetMapping("/new")
 		public String newUser(Game game, Model g) {
 			g.addAttribute("game",game);

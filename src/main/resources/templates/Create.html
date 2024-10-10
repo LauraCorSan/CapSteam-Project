@@ -1,20 +1,20 @@
 <!DOCTYPE html>
-<html lang="es">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" th:href="@{/static/css/create.css}">
+    <link rel="stylesheet" th:href="@{css/create.css}">
     <title>Juegos nuevos</title>
 </head>
 <body>
 
 <h2>Juegos nuevos</h2>
 <div class="container">
-<form method="post" th:object="${game}" th:action="@{/save}">
-    <table class="table2">
+<form method="post" th:action="@{/save}">
+    <table>
         <thead>
             <tr>
-                <th class="wide-column2">Name</th>
+                 <th class="wide-column2">Name</th>
                 <th class="wide-column2">Platform</th>
                 <th class="wide-column2">Year</th>
                 <th class="wide-column2">Genre</th>
@@ -28,29 +28,25 @@
         </thead>
         <tbody>
             <tr>
-                <td>
-                    <input id="rank" th:field="*{rank}" type="hidden" />
-                    
-                </td>
-                <td><input class="input2 wide-column2" type="text" th:field="*{name}" required /></td>
-                <td><input class="input2 wide-column2" type="text" th:field="*{platform}" required /></td>
-                <td><input class="input2 wide-column2" type="text" th:field="*{year}" required /></td>
-                <td><input class="input2 wide-column2" type="text" th:field="*{genre}" required /></td>
-                <td><input class="input2 wide-column2" type="text" th:field="*{publisher}" required /></td>
+                 <td><input class="input2" type="text" th:field="*{name}" required /></td>
+                <td><input class="input2" type="text" th:field="*{platform}" required /></td>
+                <td><input class="input2" type="text" th:field="*{year}" required /></td>
+                <td><input class="input2" type="text" th:field="*{genre}" required /></td>
+                <td><input class="input2" type="text" th:field="*{publisher}" required /></td>
                 <td><input class="input2 small-column2" type="number" step="0.01" th:field="*{naSales}" required /></td>
                 <td><input class="input2 small-column2" type="number" step="0.01" th:field="*{euSales}" required /></td>
                 <td><input class="input2 small-column2" type="number" step="0.01" th:field="*{jpSales}" required /></td>
                 <td><input class="input2 small-column2" type="number" step="0.01" th:field="*{otherSales}" required /></td>
                 <td><input class="input2 small-column2" type="number" step="0.01" th:field="*{globalSales}" required /></td>
             </tr>
-            	<tr>
-						<td colspan="2" align="center"><input type="submit"
-							value="Guardar cambios"></td>
-					</tr>
         </tbody>
     </table>
-    <button class="button2" type="reset">Limpiar</button>
-	</form>
+
+    <button type="submit">Guardar</button>
+    <button type="reset">Limpiar</button>
+    <button type="button" th:onclick="'new()'">Nuevo</button>
+</form>
+
     </div>
 </body>
 </html>
