@@ -17,5 +17,14 @@ public interface GameDao extends JpaRepository<Game,Integer>{
 	 */	
 	
 	List<Game> findByNameContainingIgnoreCase(String name);
+
+	/**
+	 * Método que busca y devuelve todos los juegos que coinciden con el año proporcionado.
+	 * @param year, para filtrar los juegos en la base de datos que tienen ese año específico.
+	 * @return Una lista de objetos `Game` que contiene todos los juegos filtrados por el año.
+	 */
+	List<Game> findByYear(int year);
+
+
 }
 

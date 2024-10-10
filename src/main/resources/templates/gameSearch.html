@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
@@ -9,47 +10,86 @@
 </head>
 <body>
 
+<!-- Contenedor principal con un margen superior -->
 <div class="container mt-5">
-    <h2 align="center">Buscar juego</h2>
-    <form method="get" th:action="@{/games/search}">
-        <!-- Entrada para el nombre del juego a buscar y botón submit-->
-        <input name="name" placeholder="Nombre del juego" size="50" th:value="${name}" type="text" />
-        <button class="btn btn-info" type="submit">Buscar</button>
-        <a href="/games" class="btn btn-primary">Home</a>
-        
+
+    <!-- Título centrado -->
+    <h2 class="text-center mb-4">Buscar Juego</h2>
+
+    <!-- Formulario para buscar por nombre -->
+    <form method="get" th:action="@{/games/search}" class="mb-4">
+        <div class="row mb-3">
+            <div class="col-md-8">
+                <input name="name" placeholder="Nombre del juego" size="50" th:value="${name}" type="text" class="form-control" />
+            </div>
+            <div class="col-md-4 d-flex align-items-end">
+                <button class="btn btn-info w-100" type="submit">Buscar por nombre</button>
+            </div>
+        </div>
     </form>
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th class="text-center">Rank</th>
-                <th class="text-left">Name</th>
-                <th class="text-left">Platform</th>
-                <th class="text-center">Year</th>
-                <th class="text-left">Genre</th>
-                <th class="text-left">Publisher</th>
-                <th class="text-right">NA_Sales</th>
-                <th class="text-right">EU_Sales</th>
-                <th class="text-right">JP_Sales</th>
-                <th class="text-right">Other_Sales</th>
-                <th class="text-right">Global_Sales</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr th:each="game, status : ${games}">
-                <td class="text-center" th:text="${status.index + 1}"></td>
-                <td th:text="${game.name}" class="text-left"></td>
-                <td th:text="${game.platform}" class="text-left"></td>
-                <td th:text="${game.year}" class="text-center"></td>
-                <td th:text="${game.genre}" class="text-left"></td>
-                <td th:text="${game.publisher}" class="text-left"></td>
-                <td th:text="${game.naSales}" class="text-right"></td>
-                <td th:text="${game.euSales}" class="text-right"></td>
-                <td th:text="${game.jpSales}" class="text-right"></td>
-                <td th:text="${game.otherSales}" class="text-right"></td>
-                <td th:text="${game.globalSales}" class="text-right"></td>
-            </tr>
-        </tbody>
-    </table>
+
+    <!-- Formulario para buscar por año -->
+    <form method="get" th:action="@{/games/search}" class="mb-4">
+        <div class="row mb-3">
+            <div class="col-md-8">
+                <input type="number" id="year" name="year" placeholder="Año del juego" th:value="${year}" class="form-control" />
+            </div>
+            <div class="col-md-4 d-flex align-items-end">
+                <button class="btn btn-success w-100" type="submit">Buscar por año</button>
+            </div>
+        </div>
+    </form>
+
+    <!-- Mensaje de error o éxito si no se encuentran juegos -->
+    <div th:if="${message}" class="alert alert-warning" role="alert">
+        <p th:text="${message}"></p>
+    </div>
+
+    <!-- Tabla de juegos encontrados -->
+    <div th:if="${games}">
+        <h3 class="mb-3">Resultados de la búsqueda</h3>
+        <table class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th class="text-center">Rank</th>
+                    <th class="text-left">Name</th>
+                    <th class="text-left">Platform</th>
+                    <th class="text-center">Year</th>
+                    <th class="text-left">Genre</th>
+                    <th class="text-left">Publisher</th>
+                    <th class="text-right">NA Sales</th>
+                    <th class="text-right">EU Sales</th>
+                    <th class="text-right">JP Sales</th>
+                    <th class="text-right">Other Sales</th>
+                    <th class="text-right">Global Sales</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="game, status : ${games}">
+                    <td class="text-center" th:text="${status.index + 1}"></td>
+                    <td th:text="${game.name}" class="text-left"></td>
+                    <td th:text="${game.platform}" class="text-left"></td>
+                    <td th:text="${game.year}" class="text-center"></td>
+                    <td th:text="${game.genre}" class="text-left"></td>
+                    <td th:text="${game.publisher}" class="text-left"></td>
+                    <td th:text="${game.naSales}" class="text-right"></td>
+                    <td th:text="${game.euSales}" class="text-right"></td>
+                    <td th:text="${game.jpSales}" class="text-right"></td>
+                    <td th:text="${game.otherSales}" class="text-right"></td>
+                    <td th:text="${game.globalSales}" class="text-right"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Botón de inicio -->
+    <div class="text-center mt-4">
+        <a href="/games" class="btn btn-primary">Volver al inicio</a>
+    </div>
 </div>
+
+<!-- Bootstrap JS (opcional, si necesitas interacciones como dropdowns o modales) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+

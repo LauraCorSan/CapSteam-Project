@@ -29,7 +29,6 @@ public class GameServiceImpl implements GameService {
 	
 	/**
 	 * Método para obtener y listar todos los juegos.
-	 * 
 	 * @return Una lista de objetos que contiene todos los juegos.
 	 */
 
@@ -69,6 +68,20 @@ public class GameServiceImpl implements GameService {
 	public Optional<Game> findById(int rank) {
 		return gameDao.findById(rank);
 	}
+
+
+	/**
+	 * Método que busca y devuelve todos los juegos que coinciden con el año proporcionado.
+	 * @param year, para filtrar los juegos en la base de datos que tienen ese año específico.
+	 * @return Una lista de objetos `Game` que contiene todos los juegos filtrados por el año.
+	 */
+	@Override
+	public List<Game> findByYear(int year) {
+		return gameDao.findByYear(year);
+	}
+
+
+	
 
 }
 
