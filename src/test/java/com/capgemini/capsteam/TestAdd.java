@@ -41,4 +41,27 @@ class TestAdd {
         // Verificamos el nombre del juego
         assertEquals("Mario Kart Wii", savedGame.getName(), "El nombre del juego guardado no coincide");
     }
+    @Test
+    public void testSaveGame_withEmptyName() {
+        Game game = new Game();
+        game.setName(""); // Nombre vacío
+        game.setPlatform("Wii");
+        game.setYear(2008);
+        game.setGenre("Racing");
+        game.setPublisher("Nintendo");
+        game.setNaSales(15.85);
+        game.setEuSales(12.88);
+        game.setJpSales(3.79);
+        game.setOtherSales(3.31);
+        game.setGlobalSales(35.82);
+
+        try {
+            gameDAO.save(game); // Intentamos guardar un juego con nombre vacío
+            fail("Se esperaba una excepción al guardar un juego con nombre vacío"); // Fallar si no se lanza la excepción
+        } catch (RuntimeException e) {
+            String expectedMessage = "El nombre del juego no puede estar vacío"; // Asegúrate de que este mensaje sea el correcto
+            String actualMessage = e.getMessage();
+            assertEquals(expectedMessage, actualMessage, "El mensaje de error no coincide.");
+        }
+    }
 }
