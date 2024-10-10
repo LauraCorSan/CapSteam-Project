@@ -42,7 +42,7 @@ public class GameController {
 			 m.addAttribute("name", name);
 		 }
 	       
-		  return "search";
+		  return "gameSearch.html";
 	    }
 	
 
@@ -50,7 +50,7 @@ public class GameController {
 	@GetMapping("/new")
 	public String newUser(Game game, Model g) {
 		g.addAttribute("game",game);
-		return "Create.html";
+		return "gameFormCreate.html";
 	}
 
 	/**
@@ -62,7 +62,7 @@ public class GameController {
 	@GetMapping("/games")
 	public String listGames(Model m) {
 		m.addAttribute("gameList", service.findAll());
-		return "GameList.html";
+		return "gameList.html";
 	}
 	
 	/**
