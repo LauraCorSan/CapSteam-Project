@@ -17,7 +17,7 @@ import static org.mockito.Mockito.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith(MockitoExtension.class)  //línea para habilitar la extensión de Mockito, si no da error
-class GameServiceImplFindAllTest {
+class ListAllTests {
 
     @Mock
     private GameDao gameDao;  //mockeamos el repositorio

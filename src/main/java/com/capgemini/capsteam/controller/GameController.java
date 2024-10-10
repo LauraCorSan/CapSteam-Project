@@ -39,22 +39,27 @@ public class GameController {
 	@GetMapping(path = { "/games/error", "/games/search" })
 	public String searchGameByName(@RequestParam(required = false) String name, Model m) {
 
-		System.out.println("Searching for: " + name); // Imprime el nombre buscado
+		  System.out.println("Searching for: " + name); // Imprime el nombre buscado
+		  
+			if (name != null) {
+			 List<Game> games = service.getGameByName(name);
+			 System.out.println("Games found: " + games); // Imprimir los juegos encontrados
+			 m.addAttribute("games", games);
+			 m.addAttribute("name", name);
+		 }
+	       
+		  return "gameSearch.html";
+	    }
+	
 
-		if (name != null) {
-			List<Game> games = service.getGameByName(name);
-			System.out.println("Games found: " + games); // Imprimir los juegos encontrados
-			m.addAttribute("games", games);
-			m.addAttribute("name", name);
-		}
-
-		return "search";
-	}
+	
+	
 
 	@GetMapping("/new")
 	public String newUser(Game game, Model g) {
-		g.addAttribute("game", game);
-		return "Create.html";
+
+		g.addAttribute("game",game);
+		return "gameFormCreate.html";
 	}
 
 	/**
@@ -67,7 +72,7 @@ public class GameController {
 	@GetMapping("/games")
 	public String listGames(Model m) {
 		m.addAttribute("gameList", service.findAll());
-		return "GameList.html";
+		return "gameList.html";
 	}
 
 	/**
