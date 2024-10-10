@@ -1,107 +1,93 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" th:href="@{/css/custom.css}" />
-    <title>CapSteam</title>
+<meta charset="UTF-8">
+<link rel="stylesheet" th:href="@{/css/custom.css}" />
+<title>CapSteam</title>
 </head>
 <body>
 
-    <div class="container">
-        <h1>Actualizar juego</h1>
-        <div align="center">
+	<div class="container">
+		<h1>Actualizar juego</h1>
+		<div align="center">
 
-            <form method="post" th:object="${game}" th:action="@{/save}">
-                <input id="rank" th:field="*{rank}" type="hidden" />
-                <table>
-                    <!-- Nombre -->
-                    <tr>
-                        <td><label for="name">Nombre:</label></td>
-                        <td><input type="text" th:field="*{name}" /></td>
-                        <td>
-                            <div th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="has-error help-inline"></div>
-                        </td>
-                    </tr>
-                    <!-- Plataforma -->
-                    <tr>
-                        <td><label for="platform">Plataforma:</label></td>
-                        <td><input type="text" th:field="*{platform}" /></td>
-                        <td>
-                            <div th:if="${#fields.hasErrors('platform')}" th:errors="*{platform}" class="has-error help-inline"></div>
-                        </td>
-                    </tr>
-                    <!-- Año -->
-                    <tr>
-                        <td><label for="year">Año:</label></td>
-                        <td><input type="number" th:field="*{year}" min="1950" max="2024" /></td>
-                        <td>
-                            <div th:if="${#fields.hasErrors('year')}" th:errors="*{year}" class="has-error help-inline"></div>
-                        </td>
-                    </tr>
-                    <!-- Género -->
-                    <tr>
-                        <td><label for="genre">Género:</label></td>
-                        <td><input type="text" th:field="*{genre}" /></td>
-                        <td>
-                            <div th:if="${#fields.hasErrors('genre')}" th:errors="*{genre}" class="has-error help-inline"></div>
-                        </td>
-                    </tr>
-                    <!-- Editor -->
-                    <tr>
-                        <td><label for="publisher">Editor:</label></td>
-                        <td><input type="text" th:field="*{publisher}" /></td>
-                        <td>
-                            <div th:if="${#fields.hasErrors('publisher')}" th:errors="*{publisher}" class="has-error help-inline"></div>
-                        </td>
-                    </tr>
-                    <!-- Ventas NA -->
-                    <tr>
-                        <td><label for="na_sales">Ventas NA:</label></td>
-                        <td><input type="number" th:field="*{naSales}" min="1.0" step="0.01"/></td>
-                        <td>
-                            <div th:if="${#fields.hasErrors('naSales')}" th:errors="*{naSales}" class="has-error help-inline"></div>
-                        </td>
-                    </tr>
-                    <!-- Ventas EU -->
-                    <tr>
-                        <td><label for="eu_sales">Ventas EU:</label></td>
-                        <td><input type="number" th:field="*{euSales}" min="1.0" step="0.01"/></td>
-                        <td>
-                            <div th:if="${#fields.hasErrors('euSales')}" th:errors="*{euSales}" class="has-error help-inline"></div>
-                        </td>
-                    </tr>
-                    <!-- Ventas JP -->
-                    <tr>
-                        <td><label for="jp_sales">Ventas JP:</label></td>
-                        <td><input type="number" th:field="*{jpSales}" min="1.0" step="0.01"/></td>
-                        <td>
-                            <div th:if="${#fields.hasErrors('jpSales')}" th:errors="*{jpSales}" class="has-error help-inline"></div>
-                        </td>
-                    </tr>
-                    <!-- Otras ventas -->
-                    <tr>
-                        <td><label for="other_sales">Otras ventas:</label></td>
-                        <td><input type="number" th:field="*{otherSales}" min="1.0" step="0.01"/></td>
-                        <td>
-                            <div th:if="${#fields.hasErrors('otherSales')}" th:errors="*{otherSales}" class="has-error help-inline"></div>
-                        </td>
-                    </tr>
-                    <!-- Ventas globales -->
-                    <tr>
-                        <td><label for="global_Sales">Ventas globales:</label></td>
-                        <td><input type="number" th:field="*{globalSales}" min="1.0" step="0.01"/></td>
-                        <td>
-                            <div th:if="${#fields.hasErrors('globalSales')}" th:errors="*{globalSales}" class="has-error help-inline"></div>
-                        </td>
-                    </tr>
-                    <!-- Botón de guardar -->
-                    <tr>
-                        <td colspan="2" align="center"><input type="submit" value="Guardar cambios"></td>
-                    </tr>
-                </table>
-            </form>
+			<form method="post" th:object="${game}" th:action="@{/save}">
+				<input id="rank" th:field="*{rank}" type="hidden" />
+				<table>
+					<!-- Nombre -->
+					<tr>
+						<td><label for="name">Nombre:</label></td>
+						<td><input type="text" th:field="*{name}" /></td>
 
-        </div>
-    </div>
+					</tr>
+					<!-- Plataforma -->
+					<tr>
+						<td><label for="platform">Plataforma:</label></td>
+						<td><input type="text" th:field="*{platform}" /></td> >
+					</tr>
+					<!-- Año -->
+					<tr>
+						<td><label for="year">Año:</label></td>
+						<td><input type="number" th:field="*{year}" min="1950"
+							max="2024" /></td>
+
+					</tr>
+					<!-- Género -->
+					<tr>
+						<td><label for="genre">Género:</label></td>
+						<td><input type="text" th:field="*{genre}" /></td>
+
+					</tr>
+					<!-- Editor -->
+					<tr>
+						<td><label for="publisher">Editor:</label></td>
+						<td><input type="text" th:field="*{publisher}" /></td>
+
+					</tr>
+					<!-- Ventas NA -->
+					<tr>
+						<td><label for="na_sales">Ventas NA:</label></td>
+						<td><input type="number" th:field="*{naSales}" min="0.0"
+							step="0.01" /></td>
+
+					</tr>
+					<!-- Ventas EU -->
+					<tr>
+						<td><label for="eu_sales">Ventas EU:</label></td>
+						<td><input type="number" th:field="*{euSales}" min="0.0"
+							step="0.01" /></td>
+
+					</tr>
+					<!-- Ventas JP -->
+					<tr>
+						<td><label for="jp_sales">Ventas JP:</label></td>
+						<td><input type="number" th:field="*{jpSales}" min="0.0"
+							step="0.01" /></td>
+
+					</tr>
+					<!-- Otras ventas -->
+					<tr>
+						<td><label for="other_sales">Otras ventas:</label></td>
+						<td><input type="number" th:field="*{otherSales}" min="0.0"
+							step="0.01" /></td>
+
+					</tr>
+					<!-- Ventas globales -->
+					<tr>
+						<td><label for="global_Sales">Ventas globales:</label></td>
+						<td><input type="number" th:field="*{globalSales}" min="0.0"
+							step="0.01" /></td>
+
+					</tr>
+					<!-- Botón de guardar -->
+					<tr>
+						<td colspan="2" align="center"><input type="submit"
+							value="Guardar cambios"></td>
+					</tr>
+				</table>
+			</form>
+
+		</div>
+	</div>
 </body>
 </html>

@@ -2,6 +2,7 @@ package com.capgemini.capsteam.controller;
 
 import java.util.List;
 
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +18,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.capgemini.capsteam.model.Game;
 import com.capgemini.capsteam.service.GameService;
 
-import jakarta.validation.Valid;
 
 @Controller
 public class GameController {
@@ -57,7 +57,6 @@ public class GameController {
 
 	@GetMapping("/new")
 	public String newUser(Game game, Model g) {
-
 		g.addAttribute("game",game);
 		return "gameFormCreate.html";
 	}
@@ -97,11 +96,7 @@ public class GameController {
 	 */
 
 	@PostMapping("/save")
-	public String save(@Valid Game game, BindingResult result, ModelMap model) {
-		if (result.hasErrors()) {
-			System.out.println("--- Hay algunos errores");
-			return "gameFormUpdate.html";
-		}
+	public String save(Game game) {
 		service.save(game);
 		return ("redirect:/games");
 	}
