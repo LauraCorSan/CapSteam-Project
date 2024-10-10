@@ -6,10 +6,6 @@ import java.util.Optional;
 
 import com.capgemini.capsteam.model.Game;
 
-import java.util.List;
-
-import com.capgemini.capsteam.model.Game;
-
 public interface GameService {
 	
 
