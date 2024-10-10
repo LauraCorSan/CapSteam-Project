@@ -124,6 +124,17 @@ public class GameController {
 //		
 //	}
 	
+	/**
+	 * Maneja las solicitudes GET para buscar juegos filtrados por nombre y/o año.
+	 * Este método recibe parámetros opcionales para realizar una búsqueda por nombre, por año o por ambos.
+	 * Si ambos parámetros son nulos, se muestra un mensaje indicando que no se encontraron resultados.
+	 * 
+	 * @param name: El nombre del juego a buscar. Si es null o está vacío, no se realiza búsqueda por nombre.
+	 * @param year: El año del juego a buscar. Si es null, no se realiza búsqueda por año.
+	 * @param m: El modelo para pasar los atributos a la vista.
+
+	 * @return Devuelve la vista "gameSearch.html", que se renderiza con los resultados de la búsqueda o un mensaje vacío.
+	 */
 	@GetMapping("/games/search")
 	public String searchGame(
 	    @RequestParam(required = false) String name,
