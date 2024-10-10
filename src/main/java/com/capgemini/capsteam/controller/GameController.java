@@ -23,28 +23,28 @@ public class GameController {
 	@Autowired
 	GameService service;
 	
-	/**
-     * Maneja las solicitudes GET para buscar juegos. 
-     * @param name: El nombre del juego a buscar. Si es null, no se realiza ninguna búsqueda.
-     * @param m: El modelo para pasar atributos a la vista.
-     * @return devuelve la vista html que se renderiza.
-     */
-
-	@GetMapping(path = {"/games/error", "/games/search"})
-	    public String searchGameByName(@RequestParam(required = false) String name,Model m) {
-
-		  System.out.println("Searching for: " + name); // Imprime el nombre buscado
-		  
-			if (name != null) {
-			 List<Game> games = service.getGameByName(name);
-			 System.out.println("Games found: " + games); // Imprimir los juegos encontrados
-			 m.addAttribute("games", games);
-			 m.addAttribute("name", name);
-		 }
-	       
-		  return "gameSearch.html";
-	    }
-	
+//	/**
+//     * Maneja las solicitudes GET para buscar juegos. 
+//     * @param name: El nombre del juego a buscar. Si es null, no se realiza ninguna búsqueda.
+//     * @param m: El modelo para pasar atributos a la vista.
+//     * @return devuelve la vista html que se renderiza.
+//     */
+//
+//	@GetMapping(path = {"/games/error", "/games/search"})
+//	    public String searchGameByName(@RequestParam(required = false) String name,Model m) {
+//
+//		  System.out.println("Searching for: " + name); // Imprime el nombre buscado
+//		  
+//			if (name != null) {
+//			 List<Game> games = service.getGameByName(name);
+//			 System.out.println("Games found: " + games); // Imprimir los juegos encontrados
+//			 m.addAttribute("games", games);
+//			 m.addAttribute("name", name);
+//		 }
+//	       
+//		  return "gameSearch.html";
+//	    }
+//	
 
 	
 	@GetMapping("/new")
@@ -62,7 +62,7 @@ public class GameController {
 	@GetMapping("/games")
 	public String listGames(Model m) {
 		m.addAttribute("gameList", service.findAll());
-		return "gameList.html";
+		return "gameList";
 	}
 	
 	/**
@@ -102,6 +102,62 @@ public class GameController {
 		service.deleteById(rank);
 		return ("redirect:/games");
 	}
+	
+	
+//	/**
+//     * Maneja las solicitudes GET para buscar juegos filtraados por años. 
+//     * @param year: El año del juego a buscar. Si es null, no se realiza ninguna búsqueda.
+//     * @param m: El modelo para pasar atributos a la vista.
+//     * @return devuelve la vista html que se renderiza.
+//     */
+//	@GetMapping("/games/searchYear")
+//	public String searchGameByYear(@RequestParam (required = false) Integer year, Model m) {
+//		 System.out.println("Searching for: " + year); // Imprime el nombre buscado
+//		 
+//		 if (year != null) {
+//			 List<Game> games = service.findByYear(year);
+//			 System.out.println("Games found: " + games); // Imprimir los juegos encontrados
+//			 m.addAttribute("games", games);
+//			 m.addAttribute("year", year);
+//		 }
+//		return "gameSearchYear.html";
+//		
+//	}
+	
+	@GetMapping("/games/search")
+	public String searchGame(
+	    @RequestParam(required = false) String name,
+	    @RequestParam(required = false) Integer year, 
+	    Model m) {
+	    
+	    System.out.println("Searching for: Name = " + name + ", Year = " + year); 
+
+	    // Si se proporciona el nombre, buscar por nombre
+	    if (name != null && !name.isEmpty()) {
+	        List<Game> gamesByName = service.getGameByName(name);
+	        m.addAttribute("games", gamesByName);
+	        m.addAttribute("name", name);
+	    }
+
+	    // Si se proporciona el año, buscar por año
+	    if (year != null) {
+	        List<Game> gamesByYear = service.findByYear(year);
+	        m.addAttribute("games", gamesByYear);
+	        m.addAttribute("year", year);
+	    }
+
+	    // Si no se proporciona ninguno de los dos, devolver un mensaje vacío o todos los juegos
+	    if (name == null && year == null) {
+	        m.addAttribute("message", "No se encontraron resultados para la búsqueda.");
+	    }
+
+	    return "gameSearch.html"; 
+	}
+
+	
+	
+	
+	
 }
 
 
