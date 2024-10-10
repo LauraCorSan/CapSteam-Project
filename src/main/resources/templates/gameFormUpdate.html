@@ -20,31 +20,31 @@
 					<!-- Nombre -->
 					<tr>
 						<td><label for="name">Nombre:</label></td>
-						<td><input type="text" th:field="*{name}" /></td>
+						<td><input type="text" th:field="*{name}" required /></td>
 
 					</tr>
 					<!-- Plataforma -->
 					<tr>
 						<td><label for="platform">Plataforma:</label></td>
-						<td><input type="text" th:field="*{platform}" /></td> >
+						<td><input type="text" th:field="*{platform}" required/></td> 
 					</tr>
 					<!-- Año -->
 					<tr>
 						<td><label for="year">Año:</label></td>
 						<td><input type="number" th:field="*{year}" min="1950"
-							max="2024" /></td>
+							max="2024" required/></td>
 
 					</tr>
 					<!-- Género -->
 					<tr>
 						<td><label for="genre">Género:</label></td>
-						<td><input type="text" th:field="*{genre}" /></td>
+						<td><input type="text" th:field="*{genre}" required /></td>
 
 					</tr>
 					<!-- Editor -->
 					<tr>
 						<td><label for="publisher">Editor:</label></td>
-						<td><input type="text" th:field="*{publisher}" /></td>
+						<td><input type="text" th:field="*{publisher}" required /></td>
 
 					</tr>
 					<!-- Ventas NA -->
@@ -79,7 +79,7 @@
 					<tr>
 						<td><label for="global_Sales">Ventas globales:</label></td>
 						<td><input type="number" th:field="*{globalSales}" min="0.0"
-							step="0.01" /></td>
+							step="0.01" required/></td>
 
 					</tr>
 					<!-- Botón de guardar -->

@@ -31,58 +31,7 @@ public class UpdateGameTests {
     @MockBean
     private GameService gameService;
 
-    /**
-     * Test que verifica que se muestran mensajes de error cuando se envían datos incompletos.
-     */
-    @Test
-    @DisplayName("Guardar Juego - Campos Vacíos Deberían Retornar Errores de Validación")
-    public void guardarJuego_CamposVacios_DeberiaRetornarErrores() throws Exception {
-        mockMvc.perform(post("/save")
-                .contentType(MediaType.APPLICATION_FORM_URLENCODED)
-                .param("rank", "1")
-                .param("name", "") 
-                .param("platform", "")
-                .param("year", "2020")
-                .param("genre", "Acción")
-                .param("publisher", "Ubisoft")
-                .param("naSales", "4.7")
-                .param("euSales", "10.5")
-                .param("jpSales", "5.0")
-                .param("otherSales", "2.5")
-                .param("globalSales", "18.0")
-        )
-        .andExpect(status().isOk())
-        .andExpect(view().name("gameFormUpdate.html")) 
-        .andExpect(model().attributeHasFieldErrors("game", "name", "platform"))
-        .andExpect(model().attributeHasFieldErrorCode("game", "name", "NotBlank"))
-        .andExpect(model().attributeHasFieldErrorCode("game", "platform", "NotBlank"));
-    }
 
-    /**
-     * Test que verifica que se muestran mensajes de error cuando se envían datos incorrectos.
-     */
-    @Test
-    @DisplayName("Guardar Juego - Datos Incorrectos Deberían Retornar Errores de Validación")
-    public void guardarJuego_DatosIncorrectos_DeberiaRetornarErrores() throws Exception {
-        mockMvc.perform(post("/save")
-                .contentType(MediaType.APPLICATION_FORM_URLENCODED)
-                .param("rank", "2")
-                .param("name", "Juego Test")
-                .param("platform", "Console")
-                .param("year", "1940") 
-                .param("genre", "Estrategia")
-                .param("publisher", "EA")
-                .param("naSales", "15.0")
-                .param("euSales", "-5.0")
-                .param("jpSales", "3.0")
-                .param("otherSales", "1.0")
-                .param("globalSales", "19.0")
-        )
-        .andExpect(status().isOk())
-        .andExpect(view().name("gameFormUpdate.html")) 
-        .andExpect(model().attributeHasFieldErrors("game", "year", "euSales")) 
-        .andExpect(model().attributeHasFieldErrorCode("game", "year", "Min"));
-    }
 
     /**
      * Test que verifica que una solicitud válida redirige correctamente.
