@@ -48,8 +48,9 @@
                     <td th:text="${game.jpSales}" class="text-right"/>
                     <td th:text="${game.otherSales}" class="text-right"/>
                     <td th:text="${game.globalSales}" class="text-right"/>
-                    <td><a th:href="@{/update(rank=${game.rank})}">Modificar</a> | <a
-                        th:href="@{/delete(rank=${game.rank})}">Eliminar</a></td>
+                    <td><a th:href="@{/update(rank=${game.rank})} " class="text-left">Modificar</a> | <a
+                        th:href="@{/delete(rank=${game.rank})}" class="text-left">Eliminar</a>|
+                       <a th:href="@{/details(rank=${game.rank})}" class="text-left">Detalles</a>|</td>
 
                 </tr>
             </tbody>
