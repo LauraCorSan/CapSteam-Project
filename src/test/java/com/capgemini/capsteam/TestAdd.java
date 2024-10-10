@@ -15,15 +15,10 @@ import org.springframework.boot.test.context.SpringBootTest;
 import com.capgemini.capsteam.model.Game;
 import com.capgemini.capsteam.repository.GameDao;
 @SpringBootTest
-public class TestAdd {
+class TestAdd {
 
     @Autowired
     private GameDao gameDAO; // Inyección del GameDAO
-
-    @BeforeEach
-    public void setUp() {
-        // Si es necesario, puedes limpiar la base de datos aquí o preparar datos
-    }
 
     @Test
     public void testSaveGame_withValidGame() {
