@@ -8,81 +8,78 @@
     <title>CapSteam</title>
 
     <style>
-       .btn-light-blue {
+       
+        .btn-light-blue {
             background-color: #add8e6; 
             color: white;
         }
         .btn-light-blue:hover {
             background-color: #87CEEB; 
         }
-		.btn-gray {
-            background-color: #6c757d; 
-            color: white;
-        }
-        .btn-gray:hover {
-            background-color: #5a6268; 
-        }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <h1>Actualizar juego</h1>
-        <div align="center">
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Nuevo juego</h1>
 
+        <div align="center">
+            <!-- Formulario de nuevo juego -->
             <form method="post" th:object="${game}" th:action="@{/save}">
-                <input id="rank" th:field="*{rank}" type="hidden" />
                 <table>
                     <tr>
                         <td><label for="name">Nombre:</label></td>
-                        <td><input type="text" th:field="*{name}" required /></td>
+                        <td><input type="text" th:field="*{name}" class="form-control" /></td>
                     </tr>
                     <tr>
                         <td><label for="platform">Plataforma:</label></td>
-                        <td><input type="text" th:field="*{platform}" required /></td> 
+                        <td><input type="text" th:field="*{platform}" class="form-control" /></td>
                     </tr>
                     <tr>
                         <td><label for="year">Año:</label></td>
-                        <td><input type="number" th:field="*{year}" min="1950" max="2024" required /></td>
+                        <td><input type="text" th:field="*{year}" class="form-control" /></td>
                     </tr>
                     <tr>
                         <td><label for="genre">Género:</label></td>
-                        <td><input type="text" th:field="*{genre}" required /></td>
+                        <td><input type="text" th:field="*{genre}" class="form-control" /></td>
                     </tr>
                     <tr>
                         <td><label for="publisher">Editor:</label></td>
-                        <td><input type="text" th:field="*{publisher}" required /></td>
+                        <td><input type="text" th:field="*{publisher}" class="form-control" /></td>
                     </tr>
                     <tr>
                         <td><label for="na_sales">Ventas NA:</label></td>
-                        <td><input type="number" th:field="*{naSales}" min="0.0" step="0.01" /></td>
+                        <td><input type="text" th:field="*{naSales}" class="form-control" /></td>
                     </tr>
                     <tr>
                         <td><label for="eu_sales">Ventas EU:</label></td>
-                        <td><input type="number" th:field="*{euSales}" min="0.0" step="0.01" /></td>
+                        <td><input type="text" th:field="*{euSales}" class="form-control" /></td>
                     </tr>
                     <tr>
                         <td><label for="jp_sales">Ventas JP:</label></td>
-                        <td><input type="number" th:field="*{jpSales}" min="0.0" step="0.01" /></td>
+                        <td><input type="text" th:field="*{jpSales}" class="form-control" /></td>
                     </tr>
                     <tr>
                         <td><label for="other_sales">Otras ventas:</label></td>
-                        <td><input type="number" th:field="*{otherSales}" min="0.0" step="0.01" /></td>
+                        <td><input type="text" th:field="*{otherSales}" class="form-control" /></td>
                     </tr>
                     <tr>
                         <td><label for="global_Sales">Ventas globales:</label></td>
-                        <td><input type="number" th:field="*{globalSales}" min="0.0" step="0.01" required /></td>
+                        <td><input type="text" th:field="*{globalSales}" class="form-control" /></td>
                     </tr>
                     <tr>
                         <td colspan="2" align="center">
-                            <button type="submit" class="btn btn-light-blue">Guardar cambios</button>
-                            <a href="/games" class="btn btn-gray">Volver a inicio</a> <!-- Botón gris -->
+                            <!-- Botón "Guardar" con estilo azul claro -->
+                            <button type="submit" class="btn btn-light-blue w-100 mt-3">Guardar</button>
                         </td>
                     </tr>
                 </table>
             </form>
 
+            <!-- Botón "Volver al inicio" con estilo gris -->
+            <a href="/games" class="btn btn-secondary w-100 mt-3">Volver al inicio</a>
         </div>
     </div>
-</body>
+
+ </body>
 </html>

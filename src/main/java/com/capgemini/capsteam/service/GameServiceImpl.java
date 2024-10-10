@@ -2,22 +2,41 @@ package com.capgemini.capsteam.service;
 
 import java.util.Optional;
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.capgemini.capsteam.model.Game;
 import com.capgemini.capsteam.repository.GameDao;
 
+
 @Service
 public class GameServiceImpl implements GameService {
 
 	@Autowired
-	public GameDao gameDao;
+	GameDao gameDao;
+  
+  
+   /**
+     * Busca juegos en la base de datos que contengan el nombre proporcionado.
+     * @param name El nombre del juego a buscar (puede ser parcial y no distingue mayúsculas/minúsculas).
+     * @return Devuelve una lista de juegos que coinciden con el nombre proporcionado.
+     */
+	@Override
+    public List<Game> getGameByName(String name) {
+
+		return gameDao.findByNameContainingIgnoreCase(name);
+	}
+  
+	
+	/**
+	 * Método para obtener y listar todos los juegos.
+	 * @return Una lista de objetos que contiene todos los juegos.
+	 */
 
 	@Override
 	public List<Game> findAll() {
 		return gameDao.findAll();
 	}
+
 
 	/**
 	 * Método para guardar y actualizar un juego
@@ -50,4 +69,19 @@ public class GameServiceImpl implements GameService {
 		return gameDao.findById(rank);
 	}
 
+
+	/**
+	 * Método que busca y devuelve todos los juegos que coinciden con el año proporcionado.
+	 * @param year, para filtrar los juegos en la base de datos que tienen ese año específico.
+	 * @return Una lista de objetos `Game` que contiene todos los juegos filtrados por el año.
+	 */
+	@Override
+	public List<Game> findByYear(int year) {
+		return gameDao.findByYear(year);
+	}
+
+
+	
+
 }
+

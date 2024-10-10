@@ -8,7 +8,18 @@ import com.capgemini.capsteam.model.Game;
 
 public interface GameService {
 	
-	//Metodo para obtener la lista de juegos
+
+	 /**
+     * Busca juegos por nombre.
+     * Devuelve una lista de juegos que coinciden con el nombre proporcionado.
+     */
+	List<Game> getGameByName(String name);
+	
+	
+
+	/**
+	 * Método para obtener la lista de todos los juegos.
+	 */
 	public List<Game> findAll();
 	
 	/**
@@ -30,4 +41,12 @@ public interface GameService {
 	 * @return Optional<Game>
 	 */
 	public Optional<Game> findById(int rank);
+	
+	
+	/**
+	 * Método que busca y devuelve todos los juegos que coinciden con el año proporcionado.
+	 * @param year, para filtrar los juegos en la base de datos que tienen ese año específico.
+	 * @return Una lista de objetos `Game` que contiene todos los juegos filtrados por el año.
+	 */
+	public List<Game>findByYear(int year);
 }

@@ -1,3 +1,4 @@
+
 h1{
 	font-size:2em;
 }
@@ -40,7 +41,9 @@ p a{
 	margin-right: 18px;
 }
 
-
+.has-error{
+    color:red;
+}
 
 .container{
 	text-align:center;

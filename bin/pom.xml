@@ -63,6 +63,38 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		
+		<dependency>
+    <groupId>org.mockito</groupId>
+    <artifactId>mockito-core</artifactId>
+    <version>3.9.0</version>
+    <scope>test</scope>
+</dependency>
+
+<dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-test</artifactId>
+        <version>5.3.10</version>
+        <scope>test</scope>
+    </dependency>
+
+    <!-- Dependencia para Spring Boot Starter Test (para pruebas completas) -->
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-test</artifactId>
+        <scope>test</scope>
+    </dependency>
+    
+    
+    <dependency>
+    <groupId>org.mockito</groupId>
+    <artifactId>mockito-junit-jupiter</artifactId>
+    <version>5.0.0</version> <!-- O la versión compatible con JUnit 5 -->
+    <scope>test</scope>
+</dependency>
+
+    
+
 	</dependencies>
 
 	<build>

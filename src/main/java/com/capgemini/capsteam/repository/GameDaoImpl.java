@@ -1,5 +1,14 @@
+
+
 package com.capgemini.capsteam.repository;
 
-public class GameDaoImpl{
+import java.util.List;
+
+import com.capgemini.capsteam.model.Game;
+
+public class GameDaoImpl {
+	
+
+	
 
 }
