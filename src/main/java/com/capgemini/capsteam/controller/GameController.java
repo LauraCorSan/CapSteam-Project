@@ -103,6 +103,13 @@ public class GameController {
 		return ("redirect:/games");
 	}
 	
+	/**
+	 * Método para recuperar los datos de un juego
+	 * @param rank: para identificar el juego
+	 * @param m: el objeto Model para añadir atributos
+	 * @return String del formulario html
+	 */
+	
 	@GetMapping("/details")
 	public String gameDetails(@RequestParam("rank") int rank, Model m) {
 		m.addAttribute("game", service.findById(rank));
