@@ -31,15 +31,36 @@ public class UpdateGameTests {
     @MockBean
     private GameService gameService;
 
+    /**
+     * Test que verifica que la peticion http se realiza correctamente
+     * @throws Exception
+     */
+    @Test
+    public void guardarJuegoTest() throws Exception {
 
+        mockMvc.perform(post("/save")
+                .contentType(MediaType.APPLICATION_FORM_URLENCODED)
+                .param("rank", "3")
+                .param("name", "Juego Válido")
+                .param("platform", "NES")
+                .param("year", "2021")
+                .param("genre", "Puzzle")
+                .param("publisher", "Activision")
+                .param("naSales", "20.0")
+                .param("euSales", "25.0")
+                .param("jpSales", "10.0")
+                .param("otherSales", "5.0")
+                .param("globalSales", "60.0")
+        )
+        .andExpect(status().isFound());
+    }
 
     /**
      * Test que verifica que una solicitud válida redirige correctamente al listado.
      * @throws Exception
      */
     @Test
-    @DisplayName("Guardar Juego - Datos Válidos Deberían Guardarse y Redirigir")
-    public void guardarJuego_DatosValidos_DeberiaGuardarYRedirigir() throws Exception {
+    public void redirigirTest() throws Exception {
 
         mockMvc.perform(post("/save")
                 .contentType(MediaType.APPLICATION_FORM_URLENCODED)
