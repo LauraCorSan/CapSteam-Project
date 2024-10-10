@@ -34,8 +34,6 @@ public class Game implements Serializable {
 	@Column(name = "Platform")
 	private String platform;
 
-	@NotEmpty
-	@Size(min=4, max=4)
 	@Column(name = "Year")
 	private int year;
 
@@ -59,7 +57,6 @@ public class Game implements Serializable {
 	@Column(name = "Other_Sales")
 	private double otherSales;
 
-	@NotEmpty
 	@Column(name = "Global_Sales")
 	private double globalSales;
 
