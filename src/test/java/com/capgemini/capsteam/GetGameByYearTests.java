@@ -20,62 +20,54 @@ import com.capgemini.capsteam.controller.GameController;
 import com.capgemini.capsteam.model.Game;
 import com.capgemini.capsteam.service.GameService;
 
-@ExtendWith(MockitoExtension.class) 
+@ExtendWith(MockitoExtension.class)
 public class GetGameByYearTests {
 
-    @Mock
-    private GameService service; 
+	@Mock
+	private GameService service;
 
-    @Mock
-    private Model model; 
+	@Mock
+	private Model model;
 
-    @InjectMocks
-    private GameController controller; 
-    
-    
-    @Test
-    public void testSearchGameByYear_withYear() {  
-        
-        Game game1 = new Game();
-        game1.setYear(2005);
+	@InjectMocks
+	private GameController controller;
 
-        Game game2 = new Game();
-        game2.setYear(2006);
+	/**
+	 * Este test simula que una busqueda tiene atributos correctos y que el nombre
+	 * de la vista sea correcto
+	 */
+	@Test
+	public void testSearchGameByYear_withYear() {
 
-        List<Game> mockGames = Arrays.asList(game1, game2);
+		Game game1 = new Game();
+		game1.setYear(2005);
 
-        when(service.findByYear(2005)).thenReturn(mockGames);
-        String viewName = controller.searchGame(null, 2005, model);
+		Game game2 = new Game();
+		game2.setYear(2006);
 
-        // Verificar que el modelo tiene los atributos correctos
-        verify(model).addAttribute("games", mockGames);
-        verify(model).addAttribute("year", 2005);
+		List<Game> mockGames = Arrays.asList(game1, game2);
 
-        // Verificar que el nombre de la vista es el correcto
-        assertEquals("gameSearch.html", viewName);
-    }
+		when(service.findByYear(2005)).thenReturn(mockGames);
+		String viewName = controller.searchGame(null, 2005, model);
 
-    @Test
-    	// Simular una búsqueda con una cadena vacía
-    public void testSearchGameByYear_withoutYear() {
-       
-        String viewName = controller.searchGame(null, null, model);
+		verify(model).addAttribute("games", mockGames);
+		verify(model).addAttribute("year", 2005);
 
-        verify(service, never()).findByYear(0);
+		assertEquals("gameSearch.html", viewName);
+	}
 
-        assertEquals("gameSearch.html", viewName);
-    }
-    
-    @Test
-    public void testSearchGameByYear() {
-        
-        int year = 2005;
+	/**
+	 * Este test simula que una búsqueda con un año vacío no se pueda hacer
+	 */
+	@Test
+	public void testSearchGameByYear_withoutYear() {
 
-        String viewName = controller.searchGame(null ,year, model);
+		String viewName = controller.searchGame(null, null, model);
 
-        assertEquals("gameSearch.html", viewName);
+		verify(service, never()).findByYear(0);
 
+		assertEquals("gameSearch.html", viewName);
+	}
 
-    }
 
 }

@@ -34,7 +34,8 @@ public class UpdateGameTests {
 
 
     /**
-     * Test que verifica que una solicitud válida redirige correctamente.
+     * Test que verifica que una solicitud válida redirige correctamente al listado.
+     * @throws Exception
      */
     @Test
     @DisplayName("Guardar Juego - Datos Válidos Deberían Guardarse y Redirigir")

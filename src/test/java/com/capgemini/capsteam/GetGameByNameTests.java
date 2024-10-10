@@ -16,62 +16,54 @@ import java.util.List;
 import static org.mockito.Mockito.*;
 import static org.junit.jupiter.api.Assertions.*;
 
-@ExtendWith(MockitoExtension.class) 
+@ExtendWith(MockitoExtension.class)
 public class GetGameByNameTests {
 
-    @Mock
-    private GameService service; 
+	@Mock
+	private GameService service;
 
-    @Mock
-    private Model model; 
+	@Mock
+	private Model model;
 
-    @InjectMocks
-    private GameController controller; 
-    
-    
-    @Test
-    public void testSearchGameByName_withName() {  
-        
-        Game game1 = new Game();
-        game1.setName("FIFA");
+	@InjectMocks
+	private GameController controller;
 
-        Game game2 = new Game();
-        game2.setName("FIFA 21");
+	/**
+	 * Este test simula que una busqueda tiene atributos correctos y que el nombre
+	 * de la vista sea correcto
+	 */
+	@Test
+	public void testSearchGameByName_withName() {
 
-        List<Game> mockGames = Arrays.asList(game1, game2);
+		Game game1 = new Game();
+		game1.setName("FIFA");
 
-        when(service.getGameByName("FIFA")).thenReturn(mockGames);
-        String viewName = controller.searchGame("FIFA", null, model);
+		Game game2 = new Game();
+		game2.setName("FIFA 21");
 
-        // Verificar que el modelo tiene los atributos correctos
-        verify(model).addAttribute("games", mockGames);
-        verify(model).addAttribute("name", "FIFA");
+		List<Game> mockGames = Arrays.asList(game1, game2);
 
-        // Verificar que el nombre de la vista es el correcto
-        assertEquals("gameSearch.html", viewName);
-    }
+		when(service.getGameByName("FIFA")).thenReturn(mockGames);
+		String viewName = controller.searchGame("FIFA", null, model);
 
-    @Test
-    	// Simular una búsqueda con una cadena vacía
-    public void testSearchGameByName_withoutName() {
-       
-        String viewName = controller.searchGame(null, null, model);
+		verify(model).addAttribute("games", mockGames);
+		verify(model).addAttribute("name", "FIFA");
 
-        verify(service, never()).getGameByName(anyString());
+		assertEquals("gameSearch.html", viewName);
+	}
 
-        assertEquals("gameSearch.html", viewName);
-    }
-    
-    @Test
-    public void testSearchGameByName() {
-        
-        String gameName = "FIFA";
+	/**
+	 * Este test simula que una búsqueda con un nombre vacío no se pueda hacer
+	 * 
+	 */
+	@Test
+	public void testSearchGameByName_withoutName() {
 
-        String viewName = controller.searchGame(gameName,null, model);
+		String viewName = controller.searchGame(null, null, model);
 
-        assertEquals("gameSearch.html", viewName);
+		verify(service, never()).getGameByName(anyString());
 
-
-    }
+		assertEquals("gameSearch.html", viewName);
+	}
 
 }

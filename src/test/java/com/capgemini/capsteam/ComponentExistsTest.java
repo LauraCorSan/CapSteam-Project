@@ -26,21 +26,33 @@ class ComponentExistsTest {
 	@Autowired
 	private Game game;
 	
+	/**
+	 * Comprueba que existe el servicio
+	 */
 	@Test
 	void shouldExistService() {
 		assertThat(gameService).isNotNull();
 	}
 	
+	/**
+	 * Comprueba que existe el controlador
+	 */
 	@Test
 	void shouldExistController() {
 		assertThat(gameController).isNotNull();
 	}
 	
+	/**
+	 * Comprueba que existe el repositorio
+	 */
 	@Test
 	void shouldExistRepository() {
 		assertThat(gameDao).isNotNull();
 	}
 	
+	/**
+	 * Comprueba que existe el modelo
+	 */
 	@Test
 	void shouldExistModel() {
 		assertThat(game).isNotNull();
